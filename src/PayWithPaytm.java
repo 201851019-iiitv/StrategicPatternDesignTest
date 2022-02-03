@@ -1,4 +1,4 @@
-public class PayWithPaytm implements PaymentStrategy {
+public class PayWithPaytm implements IPaymentStrategy {
 
     String PaytmNumber;
     String PaytmPassword;

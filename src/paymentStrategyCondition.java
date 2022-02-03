@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class paymentStrategyCondition {
 
-   private final HashMap<String,PaymentStrategy> paymentGateways=new HashMap<>();;
+   private final HashMap<String, IPaymentStrategy> paymentGateways=new HashMap<>();;
 
     public paymentStrategyCondition() {
         paymentGateways.put("UPI" ,new PayWithUPI("ambesh1212@paytm","12121"));
@@ -15,8 +15,16 @@ public class paymentStrategyCondition {
 
     }
 
-    public Optional<PaymentStrategy> getPaymentMethod(String paymentMethod) {
-        return Optional.ofNullable(paymentGateways.get(paymentMethod));
+    public IPaymentStrategy getPaymentMethod(String paymentMethod) {
+        IPaymentStrategy paymentStrategy;
+        try {
+             paymentStrategy = paymentGateways.get(paymentMethod);
+        }
+        catch (Exception e){
+               throw  new NullPointerException("Payment Method does not exist !");
+        }
+
+        return paymentStrategy;
     }
 
 }

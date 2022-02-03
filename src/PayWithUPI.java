@@ -1,4 +1,4 @@
-public class PayWithUPI implements  PaymentStrategy{
+public class PayWithUPI implements IPaymentStrategy {
 
     String UpiId;
     String password ;

@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class PayWithCreditCard implements PaymentStrategy {
+public class PayWithCreditCard implements IPaymentStrategy {
     String name;
     String CardNumber;
     int cvv;

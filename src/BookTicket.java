@@ -1,5 +1,4 @@
 import java.util.Date;
-import java.util.Optional;
 
 public class BookTicket {
 
@@ -20,7 +19,7 @@ public class BookTicket {
     }
 
     public void payAmount(String paymentMethod) throws Exception {
-        PaymentStrategy getPaymentGateways = new paymentStrategyCondition().getPaymentMethod(paymentMethod).orElseThrow(()->new NullPointerException("No payment method found !"));
+        IPaymentStrategy getPaymentGateways = new paymentStrategyCondition().getPaymentMethod(paymentMethod);
         getPaymentGateways.pay(this.ticketPrice);
     }
 }
